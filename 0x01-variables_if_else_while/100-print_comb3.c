@@ -7,12 +7,10 @@
 
 int main(void)
 {
-int i, j;
-for (i = 48; i < 58; i++)
+int i = 48, j = 49;
+while (i < 58)
 {
-for (j = 48; j < 58; j++)
-{
-if (i < j)
+while (j < 58)
 {
 putchar(i);
 putchar(j);
@@ -22,8 +20,10 @@ if (i != 56 || j != 57)
 putchar(',');
 putchar(' ');
 }
+j++;
 }
-}
+i++;
+j = i + 1;
 }
 putchar('\n');
 
