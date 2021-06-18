@@ -17,11 +17,11 @@ putchar(lower);
 lower++;
 }
 
-while (Upper <= 'Z')/* print uppercase A-Z*/
+while (upper <= 'Z')/* print uppercase A-Z*/
 
 {
 putchar(upper);
-Upper++;
+upper++;
 }
 
 putchar('\n');
