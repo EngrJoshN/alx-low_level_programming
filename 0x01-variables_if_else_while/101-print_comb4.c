@@ -7,26 +7,26 @@
 
 int main(void)
 {
-  int i = 48, j = 49; k = 50;
+int i = 48, j = 49; y = 50;
 while (i < 58)
 {
 while (j < 58)
 {
-while (k < 58)
+while (y < 58)
 {
 putchar(i);
 putchar(j);
-putchar(k);
+putchar(y);
 
-if (i != 55 || j != 56 || k != 57)
+if (i != 55 || j != 56 || y != 57)
 {
 putchar(',');
 putchar(' ');
 }
-k++;
+y++;
 }
 j++;
-k = j + 1;
+y = j + 1;
 }
 i++;
 j = i;
