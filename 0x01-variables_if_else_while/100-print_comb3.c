@@ -7,21 +7,21 @@
 
 int main(void)
 {
-int ones;
-int tens;
-
-for (tens = '0'; tens <= '9'; tens++)/*increment tens*/
-
+int i, j;
+for (i = 48; i < 58; i++)
 {
-for (ones = (tens + 1); ones = <= '9'; ones++) /*ones ten+1*/
+for (j = 48; j < 58; j++)
 {
-putchar(tens);
-putchar(ones);
+if (i < j)
 {
-if (tens != '8' || ones != '9') /*print commas*/
+putchar(i);
+putchar(j);
+{
+if (i != 56 || j != 57)
 {
 putchar(',');
 putchar(' ');
+}
 }
 }
 }
