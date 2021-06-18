@@ -1,8 +1,8 @@
-#inclde <stdio.h>
+#include <stdio.h>
 
 /**
-*print alphabet in lower case a-z
-*Return: Always 0 (Success)
+* main - print alphabet in lower case a-z
+* Return: Always 0 (Success)
 */
 
 int main(void)
@@ -10,7 +10,7 @@ int main(void)
 char alpha = 'a';
 
 while (alpha <= 'z')
- 
+
 {
 putchar(alpha);
 alpha++;
