@@ -18,7 +18,7 @@ printf("Last digit of %i is %i and is", n, (n % 10));
 
 if ((n % 10) == 0)
 {
-printf("0\n");
+printf(" 0\n");
 }
 else if ((n % 10) > 5)
 {
