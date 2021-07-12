@@ -1,36 +1,44 @@
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include "holberton.h"
+
 /**
- * main - prints the minumum number of coins to change of a mount
- * @argc: number or arguments to program
- * @argv: vector of arguments
- * Return: zero
+ * main - prints the minimum number of coins for an amount of money
+ * @argc: should count two arguments
+ * @argv: arguments given should be program name and amount of money
+ * Return: least number of coins, 0 if negative amount, 1 if amount not given
  */
 
 int main(int argc, char *argv[])
 {
-	int i;
-	int n;
-	int coins;
-	int s[] = {25, 10, 5, 2, 1};
+	int n, coins = 0;
 
+	/* validate input */
 	if (argc != 2)
 	{
 		printf("Error\n");
 		return (1);
 	}
 
-	n = atoi(argv[1]);
-	if (n < 0)
+	if (argv[1][0] == '-')
 	{
 		printf("0\n");
 		return (0);
 	}
-	for (i = 0; i < 5; i++)
-	{
-		for (; n >= s[i]; coins++)
-			n = n - s[i];
-	}
+
+	/* convert string to int and calculate coins */
+	n = atoi(argv[1]);
+
+	coins += n / 25;
+	n = n % 25;
+	coins += n / 10;
+	n = n % 10;
+	coins += n / 5;
+	n = n % 5;
+	coins += n / 2;
+	n = n % 2;
+	coins += n / 1;
+
 	printf("%d\n", coins);
 	return (0);
 }
