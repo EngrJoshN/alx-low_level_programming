@@ -1,40 +1,45 @@
-#include "holberton.h"
 #include <stdlib.h>
+#include "holberton.h"
 
 /**
- * _realloc - reallocates a memory block using malloc and free.
- * @ptr: pointer to previously allocated memory
- * @old_size: size of allocated space for ptr
- * @new_size: size of newly allocated space
- *
- * Return: pointer to newly allocated memory, or NULL if failure
+ * _realloc - allocate memory and set all values to 0
+ * @ptr: pointer to the memory previously allocated (malloc(old_size))
+ * @old_size: size previously allocated
+ * @new_size: new size to reallocate
+ * Return: pointer to reallocated memory
  */
+
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
-	char *p;
-	unsigned int i, max = new_size;
-	char *oldp = ptr;
+	void *p;
+	unsigned int i;
 
-	if (ptr == NULL)
-	{
-		p = malloc(new_size);
-		return (p);
-	}
-	else if (new_size == 0)
+	if (new_size == 0 && ptr != NULL) /* free memory if reallocate 0 */
 	{
 		free(ptr);
 		return (NULL);
 	}
-	else if (new_size == old_size)
+
+	if (new_size == old_size) /* return ptr if reallocating same old size */
 		return (ptr);
 
-	p = malloc(new_size);
+	if (ptr == NULL) /* malloc new size if ptr is originally null */
+	{
+		p = malloc(new_size);
+		if (p == NULL)
+			return (NULL);
+		else
+			return (p);
+	}
+
+	p = malloc(new_size); /* malloc and check error */
 	if (p == NULL)
 		return (NULL);
-	if (new_size > old_size)
-		max = old_size;
-	for (i = 0; i < max; i++)
-		p[i] = oldp[i];
-	free(ptr);
+
+	/* fill up values up till minimum of old or new size */
+	for (i = 0; i < old_size && i < new_size; i++)
+		*((char *)p + i) = *((char *)ptr + i);
+	free(ptr); /* free old ptr */
+
 	return (p);
 }
